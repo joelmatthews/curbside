@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.curbsideItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 20%;
+    width: 80%;
+    margin-bottom: 1.5rem;
+}
+
+.itemImage {
+    width: 25%;
+}
+
+.itemImage img { 
+    max-width: 100%;
+    height: 200px;
+}
+
+.itemDetails {
+    width: 100%;
+    margin-left: 2rem;
+}

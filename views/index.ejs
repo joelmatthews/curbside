@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curbside Items</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+
+<body>
+    <main class="index">
+        <h1>Curbside Items</h1>
+        <% for (item of items) { %> 
+            <div class="curbsideItem">
+                <div class="itemImage">
+                    <img src="<%=item.image%>" alt="">
+                </div>
+                <div class="itemDetails">
+                    <h3><%=item.name%></h3>
+                    <p><%=item.category%></p>
+                    <p>Zip: <%=item.location.zip%></p>
+                </div>
+            </div>
+            <% } %>
+    </main>
+</body>
+
+</html>

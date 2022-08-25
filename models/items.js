@@ -1,15 +1,26 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const curbSideItemSchema = new Schema({
+const curbsideItemSchema = new Schema({
     name: {
         type: String,
         required: true
     },
     location: {
-        address: {
+        addressLineOne: {
             type: String,
             required: true,
+        },
+        addressLineTwo: {
+            type: String
+        },
+        city: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
         },
         zip: {
             type: Number,
@@ -21,10 +32,15 @@ const curbSideItemSchema = new Schema({
         enum: ['furniture', 'clothing', 'toys', 'entertainment', 'other'],
         required: true
     },
+    details: {
+        type: String,
+        required: true,
+        maxLength: 500
+    },
     image: {
         type: String,
         required: true
     }
 });
 
-module.exports = mongoose.model('CurbsideItem', curbSideItemSchema);
+module.exports = mongoose.model('CurbsideItem', curbsideItemSchema);
