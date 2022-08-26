@@ -16,25 +16,33 @@ body {
     align-items: center;
 }
 
+.index h1 {
+    margin: 2rem;
+}
+
 .curbsideItem {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 20%;
+    height: fit-content;
     width: 80%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #a3a3a3;
 }
 
 .itemImage {
-    width: 25%;
+    width: 40%;
 }
 
 .itemImage img { 
     max-width: 100%;
-    height: 200px;
 }
 
 .itemDetails {
     width: 100%;
     margin-left: 2rem;
+}
+
+.itemDetails * {
+    margin: 0.5rem;
 }
