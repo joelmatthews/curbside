@@ -27,8 +27,11 @@
                 <p>Description: <%=item.details%></p>
             </div>
             <div class="card-controls">
-                <button>Edit</button>
-                <button>Delete</button>
+                <a href="/items/<%=item._id%>/edit"><button>Edit</button></a>
+                <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+                    <button>Delete</button>
+                </form>
+                
             </div>
         </div>
 

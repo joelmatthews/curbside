@@ -24,9 +24,11 @@ body {
 
 .item-form {
     border: 1px solid #a3a3a3;
-    width: 25%;
+    width: 40%;
+    min-width: 300px;
     padding: 2rem;
     border-radius: 5px;
+    margin-bottom: 1.5rem;
 }
 
 .item-form input, textarea, select {
@@ -45,4 +47,10 @@ body {
 .item-form button {
     padding: 0.5rem;
     margin-top: 0.5rem;
+}
+
+.index-link{
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+    margin-left: 3rem;
 }

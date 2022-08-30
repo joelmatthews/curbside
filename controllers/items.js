@@ -1,3 +1,4 @@
+const { findByIdAndUpdate } = require('../models/items');
 const CurbsideItem = require('../models/items');
 
 module.exports.index = async (req, res) => {
@@ -7,8 +8,7 @@ module.exports.index = async (req, res) => {
 
 module.exports.show = async (req, res) => {
     const { id } = req.params;
-    const item = await CurbsideItem.findById(id);
-    console.log(item);  
+    const item = await CurbsideItem.findById(id);  
     res.render('show', { item });
 };
 
@@ -16,7 +16,30 @@ module.exports.newForm = async (req, res) => {
     res.render('new');
 };
 
-module.exports.new = async (req, res) => {
-    const { formData } = req.body;
-    res.send(formData);
+module.exports.newItem = async (req, res) => {
+    const formData = req.body.item;
+    const curbsideItem = new CurbsideItem(formData);
+    console.log(curbsideItem);
+    await curbsideItem.save();
+    res.redirect(`/items/${curbsideItem._id}`);
+}
+
+module.exports.editForm = async (req, res) => {
+    const { id } = req.params;
+    const curbsideItem = await CurbsideItem.findById(id);
+    console.log(curbsideItem);
+    res.render('edit', { curbsideItem })
+}
+
+module.exports.editItem = async (req, res) => {
+    const { id } = req.params;
+    const curbsideItem = await CurbsideItem.findByIdAndUpdate(id, { ...req.body.item });
+    await curbsideItem.save();
+    res.redirect(`/items/${curbsideItem._id}`);
+}
+
+module.exports.deleteItem = async (req, res) => {
+    const { id } = req.params;
+    await CurbsideItem.findByIdAndDelete(id);
+    res.redirect('/items');
 }

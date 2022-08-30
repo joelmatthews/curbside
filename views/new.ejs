@@ -10,6 +10,7 @@
 <body>
     <main class="new-main">
         <h1>Create a new Curbside Item</h1>
+        <a class="index-link" href="/items">Back to Index</a>
         <form action="/items" method="POST" class="item-form">
             <div class="input-name">
                 <label for="name">Name</label>
@@ -17,15 +18,15 @@
             </div>
             <div class="input-location">
                 <label for="address-lineOne">Address Line 1</label>
-                <input type="text" id="address-lineOne" name="item.location[addressLineOne]" required>
+                <input type="text" id="address-lineOne" name="item[location][addressLineOne]" required>
                 <label for="address-lineTwo">Address Line 2 (Optional)</label>
-                <input type="text" id="address-lineTwo" name="item.location[addressLineTwo]">
+                <input type="text" id="address-lineTwo" name="item[location][addressLineTwo]">
                 <label for="city">City</label>
-                <input type="text" id="city" name="item.location[city]">
+                <input type="text" id="city" name="item[location][city]">
                 <label for="state">State</label>
-                <input type="text" id="state" name="item.location[state]">
+                <input type="text" id="state" name="item[location][state]">
                 <label for="zip">Zipcode</label>
-                <input type="number" id="zip" name="item.location[zip]">
+                <input type="number" id="zip" name="item[location][zip]">
             </div>
             <div class="input-category">
                 <label for="category">Category</label>
@@ -44,7 +45,7 @@
             </div>
             <div class="input-details">
                 <label for="details">Details</label>
-                <textarea name="item[details]" id="details" cols="30" rows="10"></textarea>
+                <textarea name="item[details]" id="details" cols="30" rows="10" maxlength="500"></textarea>
             </div>
             <button>Submit</button>
         </form>

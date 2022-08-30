@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/new.css">
+    <title>Edit</title>
+</head>
+<body>
+    <main class="new-main">
+        <h1>Edit your Curbside Item</h1>
+        <form action="/items/<%=curbsideItem._id%>?_method=PUT" method="POST" class="item-form">
+            <div class="input-name">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="item[name]" value="<%=curbsideItem.name%>" required>
+            </div>
+            <div class="input-location">
+                <label for="address-lineOne">Address Line 1</label>
+                <input type="text" id="address-lineOne" name="item[location][addressLineOne]" value="<%=curbsideItem.location.addressLineOne%>" required>
+                <label for="address-lineTwo">Address Line 2 (Optional)</label>
+                <input type="text" id="address-lineTwo" name="item[location][addressLineTwo]" value="<%=curbsideItem.location.addressLineTwo%>">
+                <label for="city">City</label>
+                <input type="text" id="city" name="item[location][city]" value="<%=curbsideItem.location.city%>">
+                <label for="state">State</label>
+                <input type="text" id="state" name="item[location][state]" value="<%=curbsideItem.location.state%>">
+                <label for="zip">Zipcode</label>
+                <input type="number" id="zip" name="item[location][zip]" value="<%=curbsideItem.location.zip%>">
+            </div>
+            <div class="input-category">
+                <label for="category">Category</label>
+                <select name="item[category]" id="category"> 
+                    <option value="">Please Select a Category</option>
+                    <option <%- curbsideItem.category === 'furniture' ? selected='selected' : ''%> value="furniture">Furniture</option>
+                    <option <%- curbsideItem.category === 'clothing' ? selected='selected' : ''%> value="clothing">Clothing</option>
+                    <option <%- curbsideItem.category === 'toys' ? selected='selected' : ''%> value="toys">Toys</option>
+                    <option <%- curbsideItem.category === 'entertainment' ? selected='selected' : ''%> value="entertainment">Entertainment</option>
+                    <option <%- curbsideItem.category === 'other' ? selected='selected' : ''%> value="other">Other</option>
+                </select>
+            </div>
+            <div class="input-image">
+                <label for="image">Image URL</label>
+                <input type="text" id="image" name="item[image]" value="<%=curbsideItem.image%>" required>
+            </div>
+            <div class="input-details">
+                <label for="details">Details</label>
+                <textarea name="item[details]" id="details" cols="30" rows="10" maxlength="500"><%=curbsideItem.details%></textarea>
+            </div>
+            <button>Update</button>
+        </form>
+    </main>
+</body>
+</html>
