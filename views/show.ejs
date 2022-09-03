@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/styles/show.css">
     <title>Show</title>
 </head>
+
 <body>
     <main class="show">
         <div class="card">
@@ -14,28 +16,59 @@
                 <img src="<%=item.image%>" alt="">
             </div>
             <div class="card-details">
-                <h3><%=item.name%></h3>
+                <h3>
+                    <%=item.name%>
+                </h3>
                 <ul>
-                    <li><%=item.location.addressLineOne%></li>
+                    <li>
+                        <%=item.location.addressLineOne%>
+                    </li>
                     <% if (item.location.addressLineTwo.length) { %>
-                    <li><%=item.location.addressLineTwo%></li>
-                    <%}%>
-                    <li><%=item.location.city%>, <%=item.location.state%></li>
-                    <li><%=item.location.zip%></li>
+                        <li>
+                            <%=item.location.addressLineTwo%>
+                        </li>
+                        <%}%>
+                            <li>
+                                <%=item.location.city%>, <%=item.location.state%>
+                            </li>
+                            <li>
+                                <%=item.location.zip%>
+                            </li>
                 </ul>
                 <p>Category [<%=item.category%>]</p>
-                <p>Description: <%=item.details%></p>
+                <p>Description: <%=item.details%>
+                </p>
             </div>
             <div class="card-controls">
                 <a href="/items/<%=item._id%>/edit"><button>Edit</button></a>
                 <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
                     <button>Delete</button>
                 </form>
-                
+
             </div>
         </div>
 
         <a class="index-link" href="/items">Back to Index</a>
     </main>
+    <section class="side-content">
+        <div class="comment-form">
+            <form action="/items/<%=item._id%>/comment" method="POST">
+                <textarea name="comment" id="" cols="30" rows="10" class="comment-textarea"></textarea>
+                <button class="comment-button">Comment</button>
+            </form>
+        </div>
+        <%- include('./partials/flash') %>
+        <% for (comment of item.comments) { %>
+            <div class="comment">
+                <p>
+                    <%=comment.comment%>
+                </p>
+                <form action="/items/<%=item._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+                    <button>Delete</button>
+                </form>
+            </div>
+            <%}%>
+    </section>
 </body>
+
 </html>

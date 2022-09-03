@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const path = require('path');
 const methodOverride = require('method-override');
 const ExpressError = require('./utilities/ExpressError');
+const session = require('express-session');
+const flash = require('connect-flash');
+const ejsMate = require('ejs-mate');
 const app = express();
-
-//express router routes
-const itemRoutes = require('./routes/items');
 
 main().catch(err => console.log(err));
 
@@ -14,16 +14,45 @@ async function main() {
     await mongoose.connect('mongodb://localhost:27017/curbside');
 }
 
-//EJS Template set up
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-//Serve Static Assets
+//Serve Static Assets, form data from body, and method override
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+const sessionConfig = {
+    name: 'session',
+    secret: 'thisisabadsecret',
+    saveUninitialized: true,
+    resave: false,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7, 
+        maxAge: 1000 * 60 * 60 * 24 * 7
+
+    }
+}
+
+//session related middleware
+app.use(session(sessionConfig));
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success')
+    next();
+})
+
+//express router routes
+const itemRoutes = require('./routes/items');
+const commentRoutes = require('./routes/comments');
+
+//EJS Template set up
+app.engine('ejs', ejsMate);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+
 app.use('/items', itemRoutes);
+app.use('/items/:id/comment', commentRoutes);
 
 app.get('/', (req, res) => {
     res.send('hello');

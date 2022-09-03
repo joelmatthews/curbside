@@ -1,4 +1,3 @@
-const { findByIdAndUpdate } = require('../models/items');
 const CurbsideItem = require('../models/items');
 
 module.exports.index = async (req, res) => {
@@ -8,7 +7,7 @@ module.exports.index = async (req, res) => {
 
 module.exports.show = async (req, res) => {
     const { id } = req.params;
-    const item = await CurbsideItem.findById(id);  
+    const item = await CurbsideItem.findById(id).populate('comments');  
     res.render('show', { item });
 };
 

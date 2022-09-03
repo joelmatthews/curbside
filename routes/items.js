@@ -1,7 +1,7 @@
 const express = require('express');
 const itemsController = require('../controllers/items');
 const catchAsync = require('../utilities/catchAsync');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const { validateItem } = require('../middleware');
 
 router.get('/', catchAsync(itemsController.index));

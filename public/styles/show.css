@@ -5,9 +5,11 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .show {
@@ -19,10 +21,10 @@ body {
 }
 
 .card {
-    margin-left: 2rem;
-    width: 80%;
+    width: 100%;
     height: fit-content;
     border: 1px solid #a3a3a3;
+    margin-left: 5%;
 }
 
 .card-image {
@@ -45,6 +47,10 @@ body {
     list-style: none;
 }
 
+.card-details ul li {
+    margin-left: 0;
+}
+
 .card-controls {
     width: 100%;
     display: flex;
@@ -59,4 +65,55 @@ body {
 
 .index-link {
     margin: 1rem 2rem 1rem 2rem;
+}
+
+.side-content {
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.comment-form {
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.comment-form form, textarea {
+    width: 100%;
+    resize: none;
+}
+
+.comment-button {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.comment {
+    width: 80%;
+    min-height: 10%;
+    border: 1px solid #a3a3a3;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.comment p {
+    margin-bottom: 2rem;
+}
+
+.flash-success {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: #a6dfa6;
+    position: relative;
+}
+
+.flash-success button {
+    padding: 0 0.25rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
