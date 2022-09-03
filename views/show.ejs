@@ -52,7 +52,7 @@
     </main>
     <section class="side-content">
         <div class="comment-form">
-            <form action="/items/<%=item._id%>/comment" method="POST">
+            <form id="comment-form-actual" action="/items/<%=item._id%>/comment" method="POST">
                 <textarea name="comment" id="" cols="30" rows="10" class="comment-textarea"></textarea>
                 <button class="comment-button">Comment</button>
             </form>
@@ -69,6 +69,7 @@
             </div>
             <%}%>
     </section>
+
 </body>
 
 </html>

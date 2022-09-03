@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const itemJoiSchema = Joi.object({
+module.exports.itemJoiSchema = Joi.object({
     item: Joi.object({
         name: Joi.string().required(),
         location: Joi.object({
@@ -17,4 +17,6 @@ const itemJoiSchema = Joi.object({
     })
 })
 
-module.exports = itemJoiSchema;
+module.exports.commentJoiSchema = Joi.object({
+    comment: Joi.string().required().min(4)
+    }).required();
