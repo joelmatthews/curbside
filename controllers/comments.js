@@ -17,5 +17,6 @@ module.exports.deleteComment = async (req, res) => {
     const { id, commentId } = req.params;
     await CurbsideItem.findByIdAndUpdate(id, { $pull: { comments: commentId } });
     await Comment.findByIdAndDelete(commentId);
+    req.flash('success', 'Sucessfully Deleted a Comment');
     res.redirect(`/items/${id}`);
 }

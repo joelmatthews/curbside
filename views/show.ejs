@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,8 +9,10 @@
     <title>Show</title>
 </head>
 
-<body>
-    <main class="show">
+<body> -->
+    <% layout('layouts/boilerplate') %>
+    <main class="show-main">
+    <div class="show">
         <div class="card">
             <div class="card-image">
                 <img src="<%=item.image%>" alt="">
@@ -49,7 +51,7 @@
         </div>
 
         <a class="index-link" href="/items">Back to Index</a>
-    </main>
+    </div>
     <section class="side-content">
         <div class="comment-form">
             <form id="comment-form-actual" action="/items/<%=item._id%>/comment" method="POST">
@@ -69,7 +71,8 @@
             </div>
             <%}%>
     </section>
+</main>
 
-</body>
+<!-- </body>
 
-</html>
+</html> -->

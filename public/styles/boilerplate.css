@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    background-color: #4e4e4e;
+}
+
+.logo {
+    color: #a3a3a3;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+}
+
+.nav-links {
+    margin-left: 1rem;
+}
+
+.nav-links a {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #a3a3a3;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+#footer {
+    height: 50px;
+    width: 100%;
+    background-color: #4e4e4e;
+    position: aboslute;
+    bottom: 0;
+    display: flex;
+}
+
+#footer p {
+    color: #a3a3a3;
+    padding: 1rem;
+}
+
+.flash-success {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: #a6dfa6;
+    position: relative;
+    z-index: -1;
+}
+
+#flash-btn {
+    padding: 0 0.25rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.flash-hidden {
+    display: none;
+}
+
+.flash-error {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: #dfa6a6;
+    position: relative;
+}
+

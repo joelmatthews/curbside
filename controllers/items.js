@@ -8,6 +8,10 @@ module.exports.index = async (req, res) => {
 module.exports.show = async (req, res) => {
     const { id } = req.params;
     const item = await CurbsideItem.findById(id).populate('comments');  
+    if (!item) {
+        req.flash('error', 'Cannot Find Item!');
+        res.redirect('/items');
+    }
     res.render('show', { item });
 };
 
@@ -27,13 +31,22 @@ module.exports.editForm = async (req, res) => {
     const { id } = req.params;
     const curbsideItem = await CurbsideItem.findById(id);
     console.log(curbsideItem);
+    if (!curbsideItem) {
+        req.flash('error', 'Cannot Find Item!');
+        res.redirect('/items');
+    }
     res.render('edit', { curbsideItem })
 }
 
 module.exports.editItem = async (req, res) => {
     const { id } = req.params;
     const curbsideItem = await CurbsideItem.findByIdAndUpdate(id, { ...req.body.item });
-    await curbsideItem.save();
+    await curbsideItem.save(); 
+    if (!curbsideItem) {
+        req.flash('error', 'Cannot Find Item!');
+        res.redirect('/items')
+    }
+    req.flash('success', 'Successfully Updated Item')
     res.redirect(`/items/${curbsideItem._id}`);
 }
 

@@ -4,10 +4,24 @@
          <button id="flash-btn">&times;</button>
     </div>
     <script>
-        const flashBtn = document.querySelector('#flash-btn');
-        const flashDiv = document.querySelector('.flash-success');
+        const flashBtnSuccess = document.querySelector('#flash-btn');
+        const flashDivSuccess = document.querySelector('.flash-success');
         flashBtn.addEventListener('click', () => {
             flashDiv.classList.add('flash-hidden')
+        })
+    </script>
+<% } %>
+
+<% if (error && error.length) { %>
+    <div class="flash-error">
+         <p><%=error%></p>
+         <button id="flash-btn">&times;</button>
+    </div>
+    <script>
+        const flashBtnError = document.querySelector('#flash-btn');
+        const flashDivError = document.querySelector('.flash-error');
+        flashBtnError.addEventListener('click', () => {
+            flashDivError.classList.add('flash-hidden')
         })
     </script>
 <% } %>
