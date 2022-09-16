@@ -7,17 +7,20 @@
     <title>Curbside</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/show.css">
+    <!-- <link rel="stylesheet" href="/styles/show.css">
     <link rel="stylesheet" href="/styles/new.css">
-    <link rel="stylesheet" href="/styles/index.css">
-    <link rel="stylesheet" href="/styles/boilerplate.css">
+    <link rel="stylesheet" href="/styles/index.css"> -->
+    <link rel="stylesheet" href="/styles/main.css">
 
 </head>
 <body>
     <%- include('../partials/navbar') %>
     <main>
-        <%- body %> 
+        <%- include('../partials/flash') %>
+        <div class="page-wrapper">
+            <%- body %> 
+            <%- include('../partials/footer') %>
+        </div>
     </main>
-    <%- include('../partials/footer') %>
 </body>
 </html>

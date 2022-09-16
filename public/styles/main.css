@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    background-color: #4e4e4e;
+    z-index: 2;
+}
+
+.logo {
+    color: #a3a3a3;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+}
+
+.nav-links {
+    margin-left: 1rem;
+}
+
+.nav-links a {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #a3a3a3;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-user-links {
+    margin-left: auto;
+    padding: 0.5rem;
+}
+
+.nav-user-links a{
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.nav-user-links a:hover {
+    color: #fff;
+}
+
+#footer {
+    height: 50px;
+    width: 100%;
+    background-color: #4e4e4e;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+#footer p {
+    color: #a3a3a3;
+    padding: 1rem;
+}
+
+.flash-success {
+    width: 80%;
+    padding: 1.5rem;
+    margin: 5rem auto 0 auto;
+    background-color: #a6dfa6;
+    position: relative;
+    z-index: 0;
+}
+
+#flash-btn-success {
+    padding: 0 0.25rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#flash-btn-error {
+    padding: 0 0.25rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.flash-hidden {
+    display: none;
+}
+
+.flash-error {
+    margin-top: 2rem;
+    width: 80%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    background-color: #dfa6a6;
+    position: relative;
+}
+
+/*error css */
+.error-main { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error {
+    margin-top: 6rem;
+    min-width: 50%;
+    padding: 2rem;
+    height: fit-content;
+    border: 1px solid #a3a3a3;
+    border-radius: 10px;
+    background-color: #e99dad;
+}
+
+.error h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/*index css */
+.index {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index h1 {
+    margin: 2rem;
+}
+
+.curbsideItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: fit-content;
+    width: 80%;
+    margin-bottom: 1rem;
+    border: 1px solid #a3a3a3;
+}
+
+.curbsideItem:last-child {
+    margin-bottom: 5rem;
+}
+
+.itemImage {
+    width: 50%;
+    height: auto;
+}
+
+.itemImage img { 
+    max-width: 100%;
+    min-width: 150px;
+    min-height: 100%;
+
+}
+
+.itemDetails {
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.itemDetails * {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.new-link {
+    align-self: flex-start;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+}
+/*new css and edit css */
+.new-main {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-main h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.item-form {
+    border: 1px solid #a3a3a3;
+    width: 40%;
+    min-width: 300px;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.item-form input, textarea, select {
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+}
+
+.item-form label {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-form button {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.index-link{
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+    margin-left: 3rem;
+}
+
+/* show css */
+.show-main {
+    margin-top: 4rem;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.show {
+    margin-top: 1rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start ;
+}
+
+.card {
+    width: 100%;
+    height: fit-content;
+    border: 1px solid #a3a3a3;
+    margin-left: 5%;
+}
+
+.card-image {
+    width: 100%;
+}
+
+.card-image img {
+    max-width: 100%;
+}
+
+.card-details {
+    margin-top: 2rem;
+}
+
+.card-details * {
+    margin: 0.5rem;
+}
+
+.card-details ul {
+    list-style: none;
+}
+
+.card-details ul li {
+    margin-left: 0;
+}
+
+.card-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.card-controls button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.index-link {
+    margin: 1rem 2rem 1rem 2rem;
+}
+
+.side-content {
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.comment-form {
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.comment-form form, textarea {
+    width: 100%;
+    resize: none;
+}
+
+.comment-button {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.comment {
+    width: 80%;
+    min-height: 10%;
+    border: 1px solid #a3a3a3;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.comment p {
+    margin-bottom: 2rem;
+}
+
+/* register css */
+
+.register-main {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.register-form {
+    min-width: 300px;
+    padding: 1rem;
+}
+
+.register-form label {
+    display: block;
+}
+
+.register-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* login css */
+.login-main {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    min-width: 300px;
+    padding: 1rem;
+}
+
+.login-form label {
+    display: block;
+}
+
+.login-form input {
+    width: 100%;
+    margin-bottom: 1rem;
+}

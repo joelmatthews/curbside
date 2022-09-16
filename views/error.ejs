@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,14 +8,14 @@
     <title>Oh no! Error!</title>
 </head>
 <body>
-    
-    <main>
+     -->
+     <% layout('layouts/boilerplate') %>
+    <main class="error-main">
         <div class="error">
             <h1>Error! <%=err.message%></h1>
             <p><%=err.stack%></p>
             <p>Something Went Horribly Wrong!</p>
         </div>
     </main>
-
-</body>
-</html>
+<!-- </body>
+</html> -->

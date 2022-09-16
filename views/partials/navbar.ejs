@@ -5,4 +5,12 @@
         <a href="/items">Items</a>
         <a href="/items/new">New</a>
     </div>
+    <div class="nav-user-links">
+        <% if (!currentUser) { %>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        <%} else {%>
+        <a href="/logout">Logout</a>
+        <%}%>
+    </div>
 </nav>

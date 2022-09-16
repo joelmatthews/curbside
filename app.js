@@ -6,6 +6,11 @@ const ExpressError = require('./utilities/ExpressError');
 const session = require('express-session');
 const flash = require('connect-flash');
 const ejsMate = require('ejs-mate');
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
+
 const app = express();
 
 main().catch(err => console.log(err));
@@ -35,16 +40,24 @@ const sessionConfig = {
 //session related middleware
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
+    res.locals.currentUser = req.user;
     next();
 })
 
 //express router routes
 const itemRoutes = require('./routes/items');
 const commentRoutes = require('./routes/comments');
+const userRoutes = require('./routes/users');
 
 //EJS Template set up
 app.engine('ejs', ejsMate);
@@ -54,6 +67,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/items', itemRoutes);
 app.use('/items/:id/comment', commentRoutes);
+app.use('/', userRoutes);
 
 app.get('/', (req, res) => {
     res.send('hello');

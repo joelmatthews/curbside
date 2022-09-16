@@ -1,13 +1,14 @@
 <% if (success && success.length) { %>
     <div class="flash-success">
          <p><%=success%></p>
-         <button id="flash-btn">&times;</button>
+         <button id="flash-btn-success">&times;</button>
     </div>
     <script>
-        const flashBtnSuccess = document.querySelector('#flash-btn');
+        const flashBtnSuccess = document.querySelector('#flash-btn-success');
         const flashDivSuccess = document.querySelector('.flash-success');
-        flashBtn.addEventListener('click', () => {
-            flashDiv.classList.add('flash-hidden')
+        flashDivSuccess.addEventListener('click', () => {
+            flashDivSuccess.classList.add('flash-hidden');
+            console.log('clicked');
         })
     </script>
 <% } %>
@@ -15,10 +16,10 @@
 <% if (error && error.length) { %>
     <div class="flash-error">
          <p><%=error%></p>
-         <button id="flash-btn">&times;</button>
+         <button id="flash-btn-error">&times;</button>
     </div>
     <script>
-        const flashBtnError = document.querySelector('#flash-btn');
+        const flashBtnError = document.querySelector('#flash-btn-error');
         const flashDivError = document.querySelector('.flash-error');
         flashBtnError.addEventListener('click', () => {
             flashDivError.classList.add('flash-hidden')

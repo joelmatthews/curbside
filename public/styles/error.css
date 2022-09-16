@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-main { 
+.error-main { 
     display: flex;
     align-items: center;
     justify-content: center;
