@@ -12,7 +12,7 @@
     <main class="new-main">
         <h1>Create a new Curbside Item</h1>
         <a class="index-link" href="/items">Back to Index</a>
-        <form action="/items" method="POST" class="item-form">
+        <form action="/items" method="POST" class="item-form" enctype="multipart/form-data">
             <div class="input-name">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="item[name]" required>
@@ -41,8 +41,9 @@
                 </select>
             </div>
             <div class="input-image">
-                <label for="image">Image URL</label>
-                <input type="text" id="image" name="item[image]" required>
+                <label for="image">Upload</label>
+                <!-- <input type="text" id="image" name="item[image]" required> -->
+                <input type="file" name="images" id="image" multiple>
             </div>
             <div class="input-details">
                 <label for="details">Details</label>

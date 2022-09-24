@@ -10,68 +10,92 @@
 </head>
 
 <body> -->
-    <% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate') %>
     <main class="show-main">
-    <div class="show">
-        <div class="card">
-            <div class="card-image">
-                <img src="<%=item.image%>" alt="">
+        <div class="show">
+            <div class="card">
+                <div class="card-image-container">
+                <div class="slider">
+                    <% for (let img of item.images) { %>
+                        <div class="card-image">
+                            <img src="<%=img.url%>" alt="">
+                        </div>
+                        <% } %>
+                        <% if (item.images.length > 1) { %>
+                            <button class="prev-btn slider-btn">prev</button>
+                            <button class="next-btn slider-btn">next</button>
+                       <% } %>
+                </div>
             </div>
-            <div class="card-details">
-                <h3>
-                    <%=item.name%>
-                </h3>
-                <ul>
-                    <li>
-                        <%=item.location.addressLineOne%>
-                    </li>
-                    <% if (item.location.addressLineTwo.length) { %>
-                        <li>
-                            <%=item.location.addressLineTwo%>
-                        </li>
+                        <div class="card-details">
+                            <h3>
+                                <%=item.name%>
+                            </h3>
+                            <ul>
+                                <li>
+                                    Submitted by: <%=item.author.username%>
+                                </li>
+                                <li>
+                                    <%=item.location.addressLineOne%>
+                                </li>
+                                <% if (item.location.addressLineTwo.length) { %>
+                                    <li>
+                                        <%=item.location.addressLineTwo%>
+                                    </li>
+                                    <%}%>
+                                        <li>
+                                            <%=item.location.city%>, <%=item.location.state%>
+                                        </li>
+                                        <li>
+                                            <%=item.location.zip%>
+                                        </li>
+                            </ul>
+                            <p>Category [<%=item.category%>]</p>
+                            <p>Description: <%=item.details%>
+                            </p>
+                        </div>
+                        <% if (currentUser && item.author.equals(currentUser._id)) { %>
+                            <div class="card-controls">
+                                <a href="/items/<%=item._id%>/edit"><button>Edit</button></a>
+                                <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+                                    <button>Delete</button>
+                                </form>
+                            </div>
+                            <% } %>
+            </div>
+
+            <a class="index-link" href="/items">Back to Index</a>
+        </div>
+        <section class="side-content">
+            <% if (currentUser) { %>
+                <div class="comment-form">
+                    <form id="comment-form-actual" action="/items/<%=item._id%>/comment" method="POST">
+                        <textarea name="comment" id="" cols="30" rows="10" class="comment-textarea"></textarea>
+                        <button class="comment-button">Comment</button>
+                    </form>
+                </div>
+                <% } %>
+                    <% for (comment of item.comments) { %>
+                        <div class="comment">
+                            <h5 class="comment-username">
+                                <%=comment.author.username%>
+                            </h5>
+                            <p>
+                                <%=comment.comment%>
+                            </p>
+                            <% if (currentUser && comment.author.equals(currentUser._id)) { %>
+                                <form action="/items/<%=item._id%>/comment/<%=comment._id%>?_method=DELETE"
+                                    method="POST">
+                                    <button>Delete</button>
+                                </form>
+                                <% } %>
+                        </div>
                         <%}%>
-                            <li>
-                                <%=item.location.city%>, <%=item.location.state%>
-                            </li>
-                            <li>
-                                <%=item.location.zip%>
-                            </li>
-                </ul>
-                <p>Category [<%=item.category%>]</p>
-                <p>Description: <%=item.details%>
-                </p>
-            </div>
-            <div class="card-controls">
-                <a href="/items/<%=item._id%>/edit"><button>Edit</button></a>
-                <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
-                    <button>Delete</button>
-                </form>
+        </section>
+    </main>
 
-            </div>
-        </div>
+    <script src="/scripts/slider.js"></script>
 
-        <a class="index-link" href="/items">Back to Index</a>
-    </div>
-    <section class="side-content">
-        <div class="comment-form">
-            <form id="comment-form-actual" action="/items/<%=item._id%>/comment" method="POST">
-                <textarea name="comment" id="" cols="30" rows="10" class="comment-textarea"></textarea>
-                <button class="comment-button">Comment</button>
-            </form>
-        </div>
-        <% for (comment of item.comments) { %>
-            <div class="comment">
-                <p>
-                    <%=comment.comment%>
-                </p>
-                <form action="/items/<%=item._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
-                    <button>Delete</button>
-                </form>
-            </div>
-            <%}%>
-    </section>
-</main>
-
-<!-- </body>
+    <!-- </body>
 
 </html> -->

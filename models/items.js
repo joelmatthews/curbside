@@ -38,9 +38,15 @@ const curbsideItemSchema = new Schema({
         required: true,
         maxLength: 500
     },
-    image: {
-        type: String,
-        required: true
+    images: [
+        {
+            url: String,
+            filename: String
+        }
+    ],
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     comments: [
         {

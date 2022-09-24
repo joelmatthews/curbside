@@ -5,6 +5,7 @@ module.exports.createComment = async (req, res) => {
     const { id } = req.params;
     const curbsideItem = await CurbsideItem.findById(id);
     const comment = new Comment(req.body);
+    comment.author = req.user._id;
     curbsideItem.comments.push(comment);
     await curbsideItem.save();
     await comment.save();

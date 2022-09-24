@@ -20,6 +20,7 @@ const seedDB = async () => {
     for (let i = 0; i < 50; i++) {
         const newItem = new CurbsideItem({
             name: 'Random Test Item',
+            author: '6323c7e45693399c8667c39b',
             location: {
                 addressLineOne: '200 York Rd',
                 addressLineTwo: '',
@@ -29,7 +30,12 @@ const seedDB = async () => {
             },
             category: category[0],
             details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae iaculis sem, eu pulvinar sem. Cras lacinia a est id luctus. Curabitur dapibus orci quis maximus tristique. Etiam ornare tristique dolor, at venenatis felis ultrices vel. Sed vestibulum mi sed lorem posuere mollis. Sed id enim in enim tempus dapibus. Morbi dui purus, euismod a lectus ac, aliquet interdum lacus.',
-            image: 'https://images.unsplash.com/photo-1577926103605-f426874bee28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+            images: [
+                {
+                  url: 'https://res.cloudinary.com/dubud8fgb/image/upload/v1663893640/Curbside/exv16rmui9erees6pslu.avif',
+                  filename: 'Curbside/exv16rmui9erees6pslu',
+                }
+              ]
         })
         await newItem.save();
     }

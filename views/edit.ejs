@@ -11,7 +11,7 @@
     <% layout('layouts/boilerplate') %>
     <main class="new-main">
         <h1>Edit your Curbside Item</h1>
-        <form action="/items/<%=curbsideItem._id%>?_method=PUT" method="POST" class="item-form">
+        <form action="/items/<%=curbsideItem._id%>?_method=PUT" method="POST" class="item-form" enctype="multipart/form-data">
             <div class="input-name">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="item[name]" value="<%=curbsideItem.name%>" required>
@@ -40,14 +40,24 @@
                 </select>
             </div>
             <div class="input-image">
-                <label for="image">Image URL</label>
-                <input type="text" id="image" name="item[image]" value="<%=curbsideItem.image%>" required>
+                <label for="image">Image Upload</label>
+                <input type="file" name="images" id="image" multiple>
+                <!-- <input type="text" id="image" name="item[image]" value="<%=curbsideItem.image%>" required> -->
             </div>
             <div class="input-details">
                 <label for="details">Details</label>
                 <textarea name="item[details]" id="details" cols="30" rows="10" maxlength="500"><%=curbsideItem.details%></textarea>
             </div>
-            <button>Update</button>
+            <div class="images-to-edit">
+                <% curbsideItem.images.forEach((img, index) => { %>
+                    <label id="thumbnail-label" for="image-<%=index%>">Delete?</label>
+                    <input type="checkbox" id="image-<%=index%>" name="deleteImages[]" value="<%=img.filename%>">
+                    <div class="thumb-nail">
+                        <img class="thumb-nail-img" src="<%=img.url%>" alt="">
+                    </div>
+                <% }) %>
+            </div>
+            <button id="update-btn">Update</button>
         </form>
     </main>
 <!-- </body>
