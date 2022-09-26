@@ -48,7 +48,8 @@ const store = MongoStore.create({
 
 const sessionConfig = {
     name: 'session',
-    secret: process.env.SECRET || 'thisisabadsecret',
+    secret,
+    store,
     saveUninitialized: true,
     resave: false,
     cookie: {
