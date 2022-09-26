@@ -449,3 +449,60 @@ body {
     width: 100%;
     margin-bottom: 1rem;
 }
+
+/* home css */
+.home-main {
+    padding-top: 5rem;
+}
+
+.home-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-title h1 {
+    font-size: 45px;
+}
+
+.home-register-login {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-register-div {
+    width: 300px;
+    background-color: #a3a3a3;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.home-login-div {
+    width: 300px;
+    background-color: #a3a3a3;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.home-button {
+    display: inline-block;
+    margin-top: 1rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border: 1px solid #fff;
+    transition: all 0.2s;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
